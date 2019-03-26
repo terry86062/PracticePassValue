@@ -15,6 +15,8 @@
 		DEC48C442248A11E00EA4391 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEC48C422248A11E00EA4391 /* Main.storyboard */; };
 		DEC48C462248A12200EA4391 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEC48C452248A12200EA4391 /* Assets.xcassets */; };
 		DEC48C492248A12200EA4391 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEC48C472248A12200EA4391 /* LaunchScreen.storyboard */; };
+		DEC48C512248B1F300EA4391 /* PushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC48C502248B1F300EA4391 /* PushViewController.swift */; };
+		DEC48C532248B20C00EA4391 /* PresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC48C522248B20C00EA4391 /* PresentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		DEC48C452248A12200EA4391 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEC48C482248A12200EA4391 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DEC48C4A2248A12200EA4391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DEC48C502248B1F300EA4391 /* PushViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushViewController.swift; sourceTree = "<group>"; };
+		DEC48C522248B20C00EA4391 /* PresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,8 @@
 			children = (
 				DEC48C3E2248A11E00EA4391 /* AppDelegate.swift */,
 				DEC48C402248A11E00EA4391 /* ViewController.swift */,
+				DEC48C502248B1F300EA4391 /* PushViewController.swift */,
+				DEC48C522248B20C00EA4391 /* PresentViewController.swift */,
 				DEC48C422248A11E00EA4391 /* Main.storyboard */,
 				6E6BCA742249EB6100279F53 /* JoStoryboard.storyboard */,
 				6E6BCA762249EC3800279F53 /* JoFirstViewController.swift */,
@@ -149,6 +155,8 @@
 				DEC48C3F2248A11E00EA4391 /* AppDelegate.swift in Sources */,
 				6E6BCA772249EC3800279F53 /* JoFirstViewController.swift in Sources */,
 				6E6BCA792249EC6400279F53 /* JoSecondViewController.swift in Sources */,
+				DEC48C532248B20C00EA4391 /* PresentViewController.swift in Sources */,
+				DEC48C512248B1F300EA4391 /* PushViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +303,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = B8QRU3Z535;
 				INFOPLIST_FILE = PracticePassValue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
