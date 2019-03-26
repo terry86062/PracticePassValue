@@ -35,7 +35,7 @@ class JoFirstViewController: UIViewController {
     
     let KVOfirstInput = Input()
     
-    let KVOsecondInput = Input()
+//    let KVOsecondInput = Input()
     
     @IBAction func toSecondPage(_ sender: UIButton) {
         
@@ -61,18 +61,10 @@ class JoFirstViewController: UIViewController {
         
         desVC.KVOsecondInput2.addObserver(self, forKeyPath: "input", options: .new, context: nil)
         
-        //        let firstInputKVO = FirstInput(firstInput: firstInput)
-        //        desVC.firstInputObservationToken = firstInputKVO.observe(\.firstInput, options: .new, changeHandler: { (input, change) in
-        //            guard let updatedInput = change.newValue else { return }
-        //            desVC.label.text = updatedInput
-        //        })
-        
-        //        guard let secondInput = desVC.textField.text else { return }
-        
-        
         
         // Delegate
         //        desVC.delegate = self
+        
         
         // Closure
         //        desVC.onSave = onSave
@@ -86,8 +78,6 @@ class JoFirstViewController: UIViewController {
     //    func onSave(_ data: String) -> () {
     //        label.text = data
     //    }
-    
-    
 
     
     override func viewDidLoad() {
@@ -95,8 +85,7 @@ class JoFirstViewController: UIViewController {
         
         // Notification
         //        createObserver()
-        
-        
+
         
 //        observer = firstInput.observe(\.input, options: .new, changeHandler: { (objct, change) in
 //            print(change.newValue)
@@ -110,7 +99,6 @@ class JoFirstViewController: UIViewController {
         if keyPath == "input" {
             guard let updateText = change?[.newKey] as? String else { return }
             label.text = updateText
-            
         }
     }
     
