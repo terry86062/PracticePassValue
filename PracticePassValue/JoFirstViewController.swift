@@ -8,14 +8,12 @@
 
 import UIKit
 
-//class FirstInput: NSObject {
-//    @objc dynamic var firstInput: String
-//
-//    init(firstInput: String) {
-//        self.firstInput = firstInput
-//    }
-//}
-//
+class Input: NSObject {
+    
+    @objc dynamic var input: String = ""
+
+}
+
 //class SecondInput: NSObject {
 //    @objc dynamic var secondInput: String
 //
@@ -35,6 +33,9 @@ class JoFirstViewController: UIViewController {
     var toSecondLabel = ""
     @objc dynamic var inputText: String?
     
+    let KVOfirstInput = Input()
+    
+    let KVOsecondInput = Input()
     
     @IBAction func toSecondPage(_ sender: UIButton) {
         
@@ -55,8 +56,11 @@ class JoFirstViewController: UIViewController {
         
         
         // KVO
-        inputText = textField.text
-        desVC.label.text = toSecondLabel
+        KVOfirstInput.addObserver(desVC, forKeyPath: "input", options: .new, context: nil)
+        KVOfirstInput.input = firstInput
+        
+        desVC.KVOsecondInput2.addObserver(self, forKeyPath: "input", options: .new, context: nil)
+        
         //        let firstInputKVO = FirstInput(firstInput: firstInput)
         //        desVC.firstInputObservationToken = firstInputKVO.observe(\.firstInput, options: .new, changeHandler: { (input, change) in
         //            guard let updatedInput = change.newValue else { return }
@@ -73,7 +77,6 @@ class JoFirstViewController: UIViewController {
         // Closure
         //        desVC.onSave = onSave
         
-        
         self.navigationController?.pushViewController(desVC, animated: true)
         
     }
@@ -85,14 +88,7 @@ class JoFirstViewController: UIViewController {
     //    }
     
     
-    //    override func viewWillAppear(_ animated: Bool) {
-    //        super.viewWillAppear(true)
-    //
-    //        inputObservationToken = input.observe(\.first, options: .new, changeHandler: { (input, change) in
-    //            guard let updatedInput = change.newValue as? String else { return }
-    //            print(updatedInput)
-    //        })
-    //    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,14 +96,22 @@ class JoFirstViewController: UIViewController {
         // Notification
         //        createObserver()
         
-        //        // KVO
         
-        inputObservationToken = observe(\.inputText , options: .new) { (vc, change) in
-            guard let updatedInputText = change.newValue as? String else { return }
-            //            vc.label.text = updatedInputText
-            self.toSecondLabel = updatedInputText
+        
+//        observer = firstInput.observe(\.input, options: .new, changeHandler: { (objct, change) in
+//            print(change.newValue)
+//        })
+        
+    }
+    
+    // KVO
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        if keyPath == "input" {
+            guard let updateText = change?[.newKey] as? String else { return }
+            label.text = updateText
+            
         }
-        
     }
     
     // Notification

@@ -26,11 +26,11 @@ class JoSecondViewController: UIViewController {
     
     var onSave: ((_ data: String) -> ())?
     
-    var firstInputObservationToken: NSKeyValueObservation?
+    var observer: NSKeyValueObservation!
+    
+    let KVOsecondInput2 = Input()
     
     @IBAction func toFirstPage(_ sender: UIButton) {
-        
-        
         
         // Notification
         //        var dict: Dictionary<String, AnyObject> = Dictionary()
@@ -44,7 +44,14 @@ class JoSecondViewController: UIViewController {
         //        delegate?.passValue(didGet: input)
         
         // Closure
-        onSave?(input)
+//        onSave?(input)
+        
+        // KVO
+//        observer = KVOsecondInput.observe(\.input, options: .new, changeHandler: { (objct, change) in
+//            print(change.newValue)
+//        })
+        
+        KVOsecondInput2.input = input
         
         self.navigationController?.popViewController(animated: true)
     }
@@ -54,13 +61,22 @@ class JoSecondViewController: UIViewController {
         super.viewDidLoad()
         
         self.label.text = ""
-        
-        
-        // KVO
-        
+
         
     }
     
+    // KVO
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        if keyPath == "input" {
+            guard let updateText = change?[.newKey] as? String else { return }
+            label.text = updateText
+
+        }
+    }
+    
+    
+    // Notification
     //    func createObserver() {
     //        NotificationCenter.default.addObserver(self, selector: #selector(notifPassValue(notification:)), name: fromFirst, object: nil)
     //    }
